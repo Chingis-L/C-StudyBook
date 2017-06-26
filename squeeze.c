@@ -22,6 +22,7 @@ void main(){
             s2[i]=c;
             ++i;
         }
+        any(s1,s2);
         squeeze(s1,s2);
     }
 }
@@ -58,5 +59,39 @@ void squeeze(char str1[], char str2[]){
     printf("The modified array is\n");
         for(i=0; str1[i]!='\n'; ++i)
             printf("%c ", str1[i]);
+        printf("\n");
+}
+void any(char str1[], char str2[]){
+    int i,j,a,b,k,x;
+    char s[1000];
+    for (i=0; str2[i]!='\n' && i<1000; ++i){
+        j=0;
+        a=0;
+        while ((s[j]!='\n') && (j<=i)){
+            if (s[j]==str2[i]){
+                a=1;
+                break;
+            }
+            ++j;
+    }
+    if (a==0){
+        s[j]=str2[i];
+        j=j+1;
+        b=j;
+        s[j]='\n';
+    }
+    }
+    x=-1;
+    for(i=k=0;str1[i]!='\n';++i){
+        for(j=0;(s[j]!='\n') && j<=b; ++j)
+            if (str1[i]==s[j]){
+                x=i;
+                break;
+            }
+        if(x!=-1)
+            break;
+    }
+    printf("The Location is\n");
+        printf("%d ", x);
         printf("\n");
 }
